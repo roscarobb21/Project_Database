@@ -85,5 +85,24 @@ namespace program_depozit
             update.modificaClient(model);
             return;
         }
+        public void AutoPopulate(tabele.Client model)
+        {
+            NumeClientTxt.Text = model.NumeClient.ToString();
+            FilialaTxt.Text = model.Filiala.ToString();
+            CodClientTxt.Text = model.CodClient.ToString();
+            CodTvaClientTxt.Text = model.CodTvaClient.ToString();
+            PersoanaDeContactTxt.Text = model.PersoanaDeContact.ToString();
+            
+            NrRegTxt.Text = model.NrReg.ToString();
+            AdresaDeLivrareTxt.Text = model.AdresaDeLivrare.ToString();
+            AdresaSediuTxt.Text = model.AdresaSediu.ToString();
+            EmailClientTxt.Text = model.Email.ToString();
+            TelefonTxt.Text = model.Telefon.ToString();
+            ZonaClientTxt.Text = model.ZonaClient.ToString();
+            JudetTxt.Text = model.Judet.ToString();
+            return;
+
+        }
+       
     }
 }
