@@ -114,15 +114,16 @@ namespace program_depozit
         }
         private void button1_Click(object sender, EventArgs e)
         {
+
             switch(dbToken.Text.ToString())
             {
                 case "Furnizor":
                    
-                    String Nume = cautaToken.Text.ToString();
+                    String NumeFurnizor = cautaToken.Text.ToString();
                     tabele.Furnizor fur = new tabele.Furnizor();
-                    metodeTabele.metodele met = new metodeTabele.metodele();
-                    fur = met.readFurnizor(Nume);
-                    MessageBox.Show(fur.CodFurnizor.ToString());
+                    metodeTabele.metodele metF = new metodeTabele.metodele();
+                    fur = metF.readFurnizor(NumeFurnizor);
+                   // MessageBox.Show(fur.CodFurnizor.ToString());
                     foreach (Control ctrl in mainContainer.Controls)
                     {
                         ctrl.Dispose();
@@ -130,25 +131,55 @@ namespace program_depozit
                     formFurnizor k = new formFurnizor();
                     mainContainer.Controls.Add(k);
                     k.AutoPopulate(fur);
+                    metF = null;
                    
-                   
-
-
-
                     break;
-
+                    //end Furnizor
                 case "Produs":
-                    searcP();
+                    String NumeProdus = cautaToken.Text.ToString();
+                    if (NumeProdus == null) break;
+                    tabele.Produse pro = new tabele.Produse();
+                    metodeTabele.metodele metP = new metodeTabele.metodele();
+                    pro = metP.readProdus(NumeProdus);
+                    MessageBox.Show(pro.CodProdus.ToString());
+                    foreach (Control ctrl in mainContainer.Controls)
+                    {
+                        ctrl.Dispose();
+                    }
+                    formProdus p = new formProdus();
+                    mainContainer.Controls.Add(p);
+                    p.AutoPopulate(pro);
+                    pro = null;
                     break;
-
+                    //end produs
                 case "Client":
-                    searcC();
+                    String NumeClient = cautaToken.Text.ToString();
+                    if (NumeClient == null) break;
+                    tabele.Client cli = new tabele.Client();
+                    metodeTabele.metodele metC = new metodeTabele.metodele();
+                    cli = metC.readClient(NumeClient);
+                    MessageBox.Show(cli.PersoanaDeContact.ToString());
+                    foreach (Control ctrl in mainContainer.Controls)
+                    {
+                        ctrl.Dispose();
+                    }
+                    formClient c = new formClient();
+                    mainContainer.Controls.Add(c);
+                    c.AutoPopulate(cli);
+                    cli = null;
+
+                   // searcC();
                     break;
 
                 case "Utilizator":
                     searcU();
                     break;
             }
+        }
+
+        private void mainContainer_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

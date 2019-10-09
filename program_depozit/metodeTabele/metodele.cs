@@ -150,7 +150,22 @@ namespace program_depozit.metodeTabele
         public Produse modificaProdus(Produse model)
         {
             db = new bazaDeDateContext();
-            db.Entry(model).State = System.Data.Entity.EntityState.Modified;
+            //db.Entry(model).State = System.Data.Entity.EntityState.Modified;
+            var ler = db.tabel_Produse.FirstOrDefault(x => x.NumeProdus == model.NumeProdus);
+
+            //ler.CodProdus = model.CodProdus.ToString();
+            //ler.CodBare = model.CodBare.ToString();
+            //ler.Furnizor = model.Furnizor.ToString();
+            //ler.UM = model.UM.ToString();
+            //ler.BucatiInBax = model.BucatiInBax.ToString();
+            //ler.NrBaxuriInLayer = model.NrBaxuriInLayer.ToString();
+            //ler.NrStraturiPePalet = model.NrStraturiPePalet.ToString();
+            //ler.GreutateProdusKg = model.GreutateProdusKg.ToString();
+            //ler.GreutateNetaProdusKg = model.GreutateNetaProdusKg.ToString();
+            //ler.LungimeCm = model.LungimeCm.ToString();
+            //ler.LatimeCm = model.LatimeCm.ToString();
+            //ler.InaltimeCm = model.InaltimeCm.ToString();
+            //ler.TipProdus = model.TipProdus.ToString();
             db.SaveChanges();
             return model;
         }

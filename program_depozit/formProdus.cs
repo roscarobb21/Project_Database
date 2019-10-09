@@ -54,5 +54,54 @@ namespace program_depozit
         {
            
         }
+        public void AutoPopulate(tabele.Produse model)
+        {
+            NumeProdusTxt.Text = model.NumeProdus.ToString();
+          //  MessageBox.Show("AM TrECUT DE PRIMA");
+            CodProdusTxt.Text = model.CodProdus.ToString();
+           // MessageBox.Show("AM TRECUT DE A 2");
+            CodBareTxt.Text = model.CodBare.ToString();
+            FurnizorProdusTxt.Text = model.Furnizor.ToString();
+            CodProdusFurnizorTextEdit.Text = model.UM.ToString();
+            BucatiInBaxTxt.Text = model.BucatiInBax.ToString();
+            NrBaxuriInLayerTxt.Text = model.NrBaxuriInLayer.ToString();
+            NrStraturiPePalet.Text = model.NrStraturiPePalet.ToString();
+            GreutateProdusKgTxt.Text = model.GreutateProdusKg.ToString();
+            GreutateNetaProdusKgTxt.Text = model.GreutateNetaProdusKg.ToString();
+            LungimeCmTxt.Text = model.LungimeCm.ToString();
+            LatimeCmTxt.Text = model.LatimeCm.ToString();
+            InaltimeCmTxt.Text = model.InaltimeCm.ToString();
+            TipProdusTxt.Text = model.TipProdus.ToString();
+            return;
+
+        }
+
+        private void NumeProdusTxt_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void modificaBtt_Click(object sender, EventArgs e)
+        {
+            tabele.Produse model = new tabele.Produse();
+            metodeTabele.metodele update = new metodeTabele.metodele();
+            // model.NumeProdus = NumeProdusTxt.Text.ToString();
+            if (NumeProdusTxt.Text.ToString() == null) return;
+            model.CodProdus = CodProdusTxt.Text.ToString();
+            model.CodBare = CodBareTxt.Text.ToString();
+            model.Furnizor = FurnizorProdusTxt.Text.ToString();
+            model.UM = UMTxt.Text.ToString();
+            model.BucatiInBax = BucatiInBaxTxt.Text.ToString();
+            model.NrBaxuriInLayer = NrBaxuriInLayerTxt.Text.ToString();
+            model.NrStraturiPePalet = NrStraturiPePalet.Text.ToString();
+            model.GreutateProdusKg = GreutateProdusKgTxt.Text.ToString();
+            model.GreutateNetaProdusKg = GreutateNetaProdusKgTxt.Text.ToString();
+            model.LungimeCm = LungimeCmTxt.Text.ToString();
+            model.LatimeCm = LatimeCmTxt.Text.ToString();
+            model.InaltimeCm = InaltimeCmTxt.Text.ToString();
+            model.TipProdus = TipProdusTxt.Text.ToString();
+            update.modificaProdus(model);
+            return;
+        }
     }
 }

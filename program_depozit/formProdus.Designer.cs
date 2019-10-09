@@ -139,7 +139,7 @@
             this.NumeProdusTxt.Size = new System.Drawing.Size(197, 20);
             this.NumeProdusTxt.StyleController = this.dataLayoutControl1;
             this.NumeProdusTxt.TabIndex = 4;
-            //this.NumeProdusTxt.EditValueChanged += new System.EventHandler(this.NumeProdusTxt_EditValueChanged);
+            this.NumeProdusTxt.EditValueChanged += new System.EventHandler(this.NumeProdusTxt_EditValueChanged);
             // 
             // CodProdusTxt
             // 
@@ -463,6 +463,7 @@
             this.modificaBtt.TabIndex = 29;
             this.modificaBtt.Text = "Modifica";
             this.modificaBtt.UseVisualStyleBackColor = true;
+            this.modificaBtt.Click += new System.EventHandler(this.modificaBtt_Click);
             // 
             // printeazaBtt
             // 

@@ -50,9 +50,9 @@
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.mainContainer = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.dbToken = new System.Windows.Forms.ComboBox();
             this.cautaToken = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.furnizorRib.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
@@ -217,6 +217,7 @@
             this.mainContainer.Name = "mainContainer";
             this.mainContainer.Size = new System.Drawing.Size(1022, 431);
             this.mainContainer.TabIndex = 1;
+            this.mainContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.mainContainer_Paint);
             // 
             // groupBox1
             // 
@@ -229,6 +230,16 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cauta";
+            // 
+            // button1
+            // 
+            this.button1.Image = global::program_depozit.PrintRibbonControllerResources.RibbonPrintPreview_Find;
+            this.button1.Location = new System.Drawing.Point(630, 16);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(26, 23);
+            this.button1.TabIndex = 2;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dbToken
             // 
@@ -251,16 +262,6 @@
             this.cautaToken.Size = new System.Drawing.Size(360, 21);
             this.cautaToken.TabIndex = 0;
             this.cautaToken.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // button1
-            // 
-            this.button1.Image = global::program_depozit.PrintRibbonControllerResources.RibbonPrintPreview_Find;
-            this.button1.Location = new System.Drawing.Point(630, 16);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(26, 23);
-            this.button1.TabIndex = 2;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // main
             // 
