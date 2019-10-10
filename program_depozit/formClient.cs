@@ -83,6 +83,7 @@ namespace program_depozit
             model.ZonaClient = ZonaClientTxt.Text.ToString();
             model.Judet = JudetTxt.Text.ToString();
             update.modificaClient(model);
+            model = null;
             return;
         }
         public void AutoPopulate(tabele.Client model)

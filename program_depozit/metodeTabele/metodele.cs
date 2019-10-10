@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using program_depozit.tabele;
-using System.Data.Entity.Migrations;
+using System.Data.Entity.Migrations.Design;
 //using program_depozit.Clase_pentru_cautare;
 
 namespace program_depozit.metodeTabele
@@ -92,22 +92,7 @@ namespace program_depozit.metodeTabele
             return model;
         }
 
-        //public Furnizor modificaFurnizor(Furnizor model)
-        //{
-        //    db = new bazaDeDateContext();
-        //    Furnizor find = db.tabel_Furnizor.Find(model.NumeFurnizor);
-        //    //db.Entry(model).State = System.Data.Entity.EntityState.Modified;
-        //    //var result = db.tabel_Furnizor.Find(model.NumeFurnizor);
-        //    //if(result== null)
-        //    //{
-        //    //    Furnizor k= new Furnizor();
-        //    //    k.NumeFurnizor = "Not Found";
-        //    //    return k;
-        //    //}
-        //    //db.tabel_Furnizor.AddOrUpdate(model);
-        //    db.SaveChanges();
-        //    return model;
-        //}
+     
         public Furnizor modificaFurnizor(Furnizor model)
         {
             db = new bazaDeDateContext();
@@ -124,6 +109,7 @@ namespace program_depozit.metodeTabele
             //fur.NumeFurnizor = model.NumeFurnizor;
             //fur.CodFurnizor = model.CodFurnizor;
             db.SaveChanges();
+            model = null;
             return model;
 
         }
@@ -144,30 +130,36 @@ namespace program_depozit.metodeTabele
             cli.Telefon = model.Telefon.ToString();
             cli.ZonaClient = model.ZonaClient.ToString();
             cli.Judet = model.Judet.ToString();
+            model = null;
             db.SaveChanges();
             return cli;
         }
-        public Produse modificaProdus(Produse model)
+    public Produse modificaProdus(Produse model)
         {
+          
             db = new bazaDeDateContext();
-            //db.Entry(model).State = System.Data.Entity.EntityState.Modified;
-            var ler = db.tabel_Produse.FirstOrDefault(x => x.NumeProdus == model.NumeProdus);
+            Produse re = new Produse();
+            var produs = db.tabel_Produse.FirstOrDefault(x => x.NumeProdus == model.NumeProdus);
+            if (produs == null)
+                return re;
 
-            //ler.CodProdus = model.CodProdus.ToString();
-            //ler.CodBare = model.CodBare.ToString();
-            //ler.Furnizor = model.Furnizor.ToString();
-            //ler.UM = model.UM.ToString();
-            //ler.BucatiInBax = model.BucatiInBax.ToString();
-            //ler.NrBaxuriInLayer = model.NrBaxuriInLayer.ToString();
-            //ler.NrStraturiPePalet = model.NrStraturiPePalet.ToString();
-            //ler.GreutateProdusKg = model.GreutateProdusKg.ToString();
-            //ler.GreutateNetaProdusKg = model.GreutateNetaProdusKg.ToString();
-            //ler.LungimeCm = model.LungimeCm.ToString();
-            //ler.LatimeCm = model.LatimeCm.ToString();
-            //ler.InaltimeCm = model.InaltimeCm.ToString();
-            //ler.TipProdus = model.TipProdus.ToString();
+            produs.NumeProdus = model.NumeProdus;
+            produs.CodProdus = model.CodProdus;
+            produs.CodBare = model.CodBare;
+            produs.Furnizor = model.Furnizor;
+            produs.CodProdusFurnizor = model.CodProdusFurnizor;
+            produs.UM = model.UM;
+            produs.BucatiInBax = model.BucatiInBax;
+            produs.NrBaxuriInLayer = model.NrBaxuriInLayer;
+            produs.NrStraturiPePalet = model.NrStraturiPePalet;
+            produs.GreutateProdusKg = model.GreutateProdusKg;
+            produs.GreutateNetaProdusKg = model.GreutateNetaProdusKg;
+            produs.LungimeCm = model.LungimeCm;
+            produs.LatimeCm = model.LatimeCm;
+            produs.InaltimeCm = model.InaltimeCm;
+            produs.TipProdus = model.TipProdus;
             db.SaveChanges();
-            return model;
+            return produs;
         }
         public Furnizor readFurnizor(String NumeFurnizor)
         {

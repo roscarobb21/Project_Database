@@ -141,7 +141,7 @@ namespace program_depozit
                     tabele.Produse pro = new tabele.Produse();
                     metodeTabele.metodele metP = new metodeTabele.metodele();
                     pro = metP.readProdus(NumeProdus);
-                    MessageBox.Show(pro.CodProdus.ToString());
+                  //  MessageBox.Show(pro.CodProdus.ToString());
                     foreach (Control ctrl in mainContainer.Controls)
                     {
                         ctrl.Dispose();

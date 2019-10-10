@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity.Migrations;
 
 namespace program_depozit
 {
@@ -22,7 +23,7 @@ namespace program_depozit
         public bazaDeDateContext(): base("name=bazaDeDateContext")
         {
         }
-
+      
         // Add a DbSet for each entity type that you want to include in your model. For more information 
         // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
 

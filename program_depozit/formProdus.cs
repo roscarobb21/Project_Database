@@ -17,7 +17,10 @@ namespace program_depozit
         {
             InitializeComponent();
         }
-
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
         private void salveazaBtt_Click(object sender, EventArgs e)
         {
             tabele.Produse model = new tabele.Produse();
@@ -72,6 +75,7 @@ namespace program_depozit
             LatimeCmTxt.Text = model.LatimeCm.ToString();
             InaltimeCmTxt.Text = model.InaltimeCm.ToString();
             TipProdusTxt.Text = model.TipProdus.ToString();
+           
             return;
 
         }
@@ -83,10 +87,12 @@ namespace program_depozit
 
         private void modificaBtt_Click(object sender, EventArgs e)
         {
+            
             tabele.Produse model = new tabele.Produse();
+            tabele.Produse of = new tabele.Produse();
             metodeTabele.metodele update = new metodeTabele.metodele();
-            // model.NumeProdus = NumeProdusTxt.Text.ToString();
-            if (NumeProdusTxt.Text.ToString() == null) return;
+
+            model.NumeProdus = NumeProdusTxt.Text.ToString();
             model.CodProdus = CodProdusTxt.Text.ToString();
             model.CodBare = CodBareTxt.Text.ToString();
             model.Furnizor = FurnizorProdusTxt.Text.ToString();
@@ -100,7 +106,10 @@ namespace program_depozit
             model.LatimeCm = LatimeCmTxt.Text.ToString();
             model.InaltimeCm = InaltimeCmTxt.Text.ToString();
             model.TipProdus = TipProdusTxt.Text.ToString();
-            update.modificaProdus(model);
+            MessageBox.Show(" NUME PRODUS DIN MODIFICA" + model.CodProdus.ToString());
+          update.modificaProdus(model);
+          //  MessageBox.Show("DE LA RETURN  COD PRODUS   " + of.CodProdus.ToString());
+            model = null;
             return;
         }
     }

@@ -94,6 +94,7 @@ namespace program_depozit
             model.Email = EmailTxtFurnizor.Text.ToString();
            
             update.modificaFurnizor(model);
+            model = null;
             return;
         }
 
